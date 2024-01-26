@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.4 on win32)" generated="20240126 17:23:44.188" rpa="false" schemaversion="3">
+<suite id="s1" name="AddingItem" source="C:\Wedo\Automated\Magento\tests\AddingItem.robot">
+<test id="s1-t1" name="Verify that user can add a item" line="6">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://magento.softwaretestingboard.com/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240126 17:23:45.049" level="INFO">Opening browser 'chrome' to base url 'https://magento.softwaretestingboard.com/'.</msg>
+<status status="PASS" starttime="20240126 17:23:45.049" endtime="20240126 17:23:49.150"/>
+</kw>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>C:\\Wedo\\Automated\\Magento\\tests${/}..${/}test_data${/}SearchingJacket.xlsx</arg>
+<arg>sheet1</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" starttime="20240126 17:23:49.150" endtime="20240126 17:23:49.158"/>
+</kw>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${item}</var>
+<arg>col_num=1</arg>
+<arg>row_num=2</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20240126 17:23:49.168" level="INFO">${item} = Jacket</msg>
+<status status="PASS" starttime="20240126 17:23:49.167" endtime="20240126 17:23:49.168"/>
+</kw>
+<kw name="Searching an item" library="searching_feature">
+<arg>${item}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${SEARCH.AN.ITEM.TEXTBOX}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240126 17:23:49.170" endtime="20240126 17:23:49.250"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SEARCH.AN.ITEM.TEXTBOX}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240126 17:23:49.256" level="INFO">Typing text 'Jacket' into text field '//input[@id="search"]'.</msg>
+<status status="PASS" starttime="20240126 17:23:49.256" endtime="20240126 17:23:49.538"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SEARCH.AN.ITEM.TEXTBOX}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20240126 17:23:49.540" level="INFO">Sending key(s) ('RETURN',) to //input[@id="search"] element.</msg>
+<msg timestamp="20240126 17:23:49.871" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20240126 17:23:49.871" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20240126 17:23:49.539" endtime="20240126 17:23:52.150"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:49.170" endtime="20240126 17:23:52.150"/>
+</kw>
+<kw name="Click Adrienne Trek Jacket" library="searching_result_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ADRIENNE.JACKET.TEXTBOX}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240126 17:23:52.152" level="INFO">Clicking element '//li[@class="item product product-item"][1]'.</msg>
+<status status="PASS" starttime="20240126 17:23:52.152" endtime="20240126 17:23:53.481"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:52.152" endtime="20240126 17:23:53.481"/>
+</kw>
+<kw name="Verify an item should same as the clcik action" library="detail_item_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ITEM.TITLE}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240126 17:23:53.484" endtime="20240126 17:23:53.584"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual.item}</var>
+<arg>${ITEM.TITLE}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240126 17:23:53.708" level="INFO">${actual.item} = Adrienne Trek Jacket</msg>
+<status status="PASS" starttime="20240126 17:23:53.585" endtime="20240126 17:23:53.708"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${actual.item}</arg>
+<arg>Adrienne Trek Jacket</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20240126 17:23:53.708" endtime="20240126 17:23:53.708"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:53.483" endtime="20240126 17:23:53.713"/>
+</kw>
+<kw name="Choose size" library="detail_item_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SIZE.M.OPTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240126 17:23:53.716" level="INFO">Clicking element '//div[@aria-label="M"]'.</msg>
+<status status="PASS" starttime="20240126 17:23:53.713" endtime="20240126 17:23:53.833"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:53.713" endtime="20240126 17:23:53.834"/>
+</kw>
+<kw name="Choose color" library="detail_item_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${COLOR.ORANGE.OPTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240126 17:23:53.835" level="INFO">Clicking element '//div[@id="option-label-color-93-item-56"]'.</msg>
+<status status="PASS" starttime="20240126 17:23:53.834" endtime="20240126 17:23:53.951"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:53.834" endtime="20240126 17:23:53.951"/>
+</kw>
+<kw name="Verify that item can be added" library="addingitem_feature">
+<kw name="Verify Instock Stuck" library="detail_item_page">
+<kw name="Set Variable" library="BuiltIn">
+<var>${expect.value}</var>
+<arg>IN STOCK</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240126 17:23:53.951" level="INFO">${expect.value} = IN STOCK</msg>
+<status status="PASS" starttime="20240126 17:23:53.951" endtime="20240126 17:23:53.951"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual.value}</var>
+<arg>${AVAILABLE.STATUS.TEXT}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240126 17:23:54.010" level="INFO">${actual.value} = IN STOCK</msg>
+<status status="PASS" starttime="20240126 17:23:53.951" endtime="20240126 17:23:54.010"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${actual.value}</arg>
+<arg>${expect.value}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20240126 17:23:54.010" endtime="20240126 17:23:54.010"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:53.951" endtime="20240126 17:23:54.010"/>
+</kw>
+<kw name="Verify size choice" library="detail_item_page">
+<kw name="Set Variable" library="BuiltIn">
+<var>${expect.value}</var>
+<arg>M</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240126 17:23:54.010" level="INFO">${expect.value} = M</msg>
+<status status="PASS" starttime="20240126 17:23:54.010" endtime="20240126 17:23:54.010"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual.value}</var>
+<arg>${SIZE.M.SELECTED.TEXT}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240126 17:23:54.065" level="INFO">${actual.value} = M</msg>
+<status status="PASS" starttime="20240126 17:23:54.010" endtime="20240126 17:23:54.065"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${actual.value}</arg>
+<arg>${expect.value}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20240126 17:23:54.065" endtime="20240126 17:23:54.065"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:54.010" endtime="20240126 17:23:54.065"/>
+</kw>
+<kw name="Verify color choice" library="detail_item_page">
+<kw name="Set Variable" library="BuiltIn">
+<var>${expect.value}</var>
+<arg>Orange</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240126 17:23:54.068" level="INFO">${expect.value} = Orange</msg>
+<status status="PASS" starttime="20240126 17:23:54.067" endtime="20240126 17:23:54.068"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual.value}</var>
+<arg>${COLOR.ORANGE.SELECTED.TEXT}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240126 17:23:54.108" level="INFO">${actual.value} = Orange</msg>
+<status status="PASS" starttime="20240126 17:23:54.068" endtime="20240126 17:23:54.108"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${actual.value}</arg>
+<arg>${expect.value}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20240126 17:23:54.108" endtime="20240126 17:23:54.108"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:54.067" endtime="20240126 17:23:54.108"/>
+</kw>
+<kw name="Click add to cart" library="detail_item_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ADD.ITEM.BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240126 17:23:54.114" level="INFO">Clicking element '//button[@title="Add to Cart"]'.</msg>
+<status status="PASS" starttime="20240126 17:23:54.113" endtime="20240126 17:23:54.251"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:54.108" endtime="20240126 17:23:54.251"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:53.951" endtime="20240126 17:23:54.252"/>
+</kw>
+<kw name="Check item in cart" library="detail_item_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ITEM.QUANTITY.TEXT}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240126 17:23:54.253" endtime="20240126 17:23:56.828"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${CART.ITEM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240126 17:23:56.828" level="INFO">Clicking element '//a[@class="action showcart"]'.</msg>
+<status status="PASS" starttime="20240126 17:23:56.828" endtime="20240126 17:23:56.944"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${VIEW.AND.EDIT.CART.BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240126 17:23:56.944" level="INFO">Clicking element '//span[text()="View and Edit Cart"]'.</msg>
+<status status="PASS" starttime="20240126 17:23:56.944" endtime="20240126 17:23:59.953"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:54.252" endtime="20240126 17:23:59.953"/>
+</kw>
+<kw name="Verify that item in cart is the same as selection" library="addingitem_feature">
+<kw name="Verify size choice" library="cart_page">
+<kw name="Set Variable" library="BuiltIn">
+<var>${expect.value}</var>
+<arg>M</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240126 17:23:59.958" level="INFO">${expect.value} = M</msg>
+<status status="PASS" starttime="20240126 17:23:59.953" endtime="20240126 17:23:59.958"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual.value}</var>
+<arg>${CART.SIZE.M.SELECTED.TEXT}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240126 17:23:59.989" level="INFO">${actual.value} = M</msg>
+<status status="PASS" starttime="20240126 17:23:59.958" endtime="20240126 17:23:59.989"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${actual.value}</arg>
+<arg>${expect.value}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20240126 17:23:59.989" endtime="20240126 17:23:59.989"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:59.953" endtime="20240126 17:23:59.989"/>
+</kw>
+<kw name="Verify color choice" library="cart_page">
+<kw name="Set Variable" library="BuiltIn">
+<var>${expect.value}</var>
+<arg>Orange</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240126 17:23:59.998" level="INFO">${expect.value} = Orange</msg>
+<status status="PASS" starttime="20240126 17:23:59.998" endtime="20240126 17:23:59.998"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual.value}</var>
+<arg>${CART.COLOR.ORANGE.SELECTED.TEXT}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240126 17:24:00.033" level="INFO">${actual.value} = Orange</msg>
+<status status="PASS" starttime="20240126 17:23:59.998" endtime="20240126 17:24:00.033"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${actual.value}</arg>
+<arg>${expect.value}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20240126 17:24:00.033" endtime="20240126 17:24:00.033"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:59.989" endtime="20240126 17:24:00.033"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:59.953" endtime="20240126 17:24:00.033"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:45.049" endtime="20240126 17:24:00.033"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240126 17:24:00.033" endtime="20240126 17:24:02.360"/>
+</kw>
+<status status="PASS" starttime="20240126 17:23:44.198" endtime="20240126 17:24:02.360"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="AddingItem">AddingItem</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

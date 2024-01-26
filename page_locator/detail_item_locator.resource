@@ -1,0 +1,10 @@
+*** Variables ***
+${ITEM.TITLE}                    //h1[@class="page-title"]
+${AVAILABLE.STATUS.TEXT}         //div[@class="stock available"]
+${ADRIENNE.JACKET.PRICE.TEXT}    //span[@id="product-price-1316"]
+${SIZE.M.OPTION}                 //div[@aria-label="M"]
+${SIZE.M.SELECTED.TEXT}          //span[text()="Size"]/following::span[text()="M"]
+${COLOR.ORANGE.OPTION}           //div[@id="option-label-color-93-item-56"]
+${COLOR.ORANGE.SELECTED.TEXT}    //span[text()="Color"]/following::span[text()="Orange"]
+${ADD.ITEM.BUTTON}               //button[@title="Add to Cart"]
+${ITEM.QUANTITY.TEXT}            //span[@class="counter qty"]
